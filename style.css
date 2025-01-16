@@ -1,0 +1,203 @@
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.adding{
+padding: 20px 40px;
+}
+.para{
+color: darkgray;
+
+}
+.para:hover{
+    color: tomato;
+}
+a{
+ text-decoration: none;
+
+}
+.pad{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+.cl{
+    display: none;
+}
+.todoo{
+
+    border: 3px solid darkgrey;
+    padding: 50px;
+    border-radius: 20px;
+    position: relative;
+    width: 100%;
+    max-width: 360px;
+
+}
+#todos{
+    border: 0;
+ padding: 10px ;
+ border-radius: 10px;
+ position: absolute;
+ top: 4px;
+ left: 5px;
+
+}
+
+#get-ht{
+background-color: darkgreen;
+   border-radius: 10px ;
+   padding: 6px;
+   width: 80%;
+   color: white;
+ text-transform: capitalize;
+
+}
+.list{
+
+li{
+    list-style-type: none;
+
+}
+
+}
+.allmodal{
+overflow: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+}
+.bl{
+    display: none;
+}
+.moodal{
+ position: relative;
+   
+    border-radius: 20px;
+    width: 50%;
+    height: 70px;
+    max-width: 600px;
+    padding: 24px;
+
+
+}
+.clos{
+    position: absolute;
+    background-color: darkgrey;
+    top: 4px;
+    right: 15px;
+    
+
+}
+.del{
+margin-right: 10px;
+   background-color: red;
+   color: white;
+   border-radius: 4px;
+   padding: 5px 20px;
+}
+.edit{
+   
+    border-radius: 4px;
+    padding: 5px 20px;
+}
+.save{
+    border-radius: 4px;
+    padding: 5px 20px;
+    background-color: chartreuse ;
+    color: white;
+}
+.edited{
+    border: 1 solid gray;
+    padding: 5px ;
+    border-radius: 10px;
+  
+}
+.modalVorodi {
+h2{
+    color: brown;
+
+}
+p{
+  
+}
+
+
+    h3{
+        text-align: center;
+    }
+}
+.bold{
+color: crimson;
+font-size: small;
+}
+.modalVorodito{
+    position: fixed;
+    top: 0;
+   right: 5px;
+   display: flex;
+   width: 100%;
+    height: 100%;
+justify-content: center;
+    align-items: center;
+  backdrop-filter: blur(64px);
+  
+}
+.bast{
+    position: absolute;
+    left: 10px;
+}
+.dimodal{
+    overflow: auto;
+   
+    background-color: burlywood;
+    display: grid;
+    width: 80%;
+    height: 60%;
+    position:relative;
+    border-radius: 10px;
+    padding: 4px;
+    p{
+        font-size: 15px;
+    }
+    h3{
+        text-align: center;
+    }
+
+}
+.cl{
+    display: none;
+}
+.enteghad{
+    color: white;
+    margin-top: 200px;
+    padding: 10px;
+
+}
+ul {
+    li {
+        list-style-type: none;
+    }
+}
+.en-all{
+    background-color: darkslategrey;
+    border-radius: 5px;
+    
+
+}
+.imes{
+    width: 100%;
+    
+}
+.oimg{
+display: none;
+}
