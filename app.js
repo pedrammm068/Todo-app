@@ -85,12 +85,16 @@ const temp = arrTodos.map(itms => {
 
     return `
               <div style="display: flex;    align-items: center; justify-content: space-between;">
-         <div style="display: flex;  ">
+         <div style="display: flex;     align-items: baseline; ">
            
          <input  onchange="checkox(this,${itms.id})" type="checkbox" ${itms.isdone ? "checked" : ""} />
              <li style=" padding: 4px ;   list-style-type: none;" id="${itms.id}">
            
-             ${itms.id === editNum ? `<input class="edited" id="edin"  value="${itms.title}">` : ` <span>${itms.title}</span>` }
+             ${itms.id === editNum ? `<input class="edited" id="edin"  value="${itms.title}">` : ` <span style="border: 2px solid gray;
+    padding: 2px 17px 2px 3px;
+    border-radius: 3px;
+    background-color: burlywood;
+    color: white;">${itms.title}</span>` }
            
              <button onclick="del(${itms.id})" class="del">Delete</button>
 

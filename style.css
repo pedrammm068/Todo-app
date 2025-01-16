@@ -2,13 +2,14 @@ body{
     margin: 0;
     padding: 0;
     width: 100%;
+    max-width: 1480px;
 }
 .adding{
 padding: 20px 40px;
 }
 .para{
 color: darkgray;
-
+display: contents;
 }
 .para:hover{
     color: tomato;
@@ -117,9 +118,11 @@ margin-right: 10px;
     color: white;
 }
 .edited{
-    border: 1 solid gray;
+    border: 1px solid burlywood;
     padding: 5px ;
-    border-radius: 10px;
+    background-color: lightslategrey;
+    color: white;
+    border-radius: 3px;
   
 }
 .modalVorodi {
@@ -127,9 +130,7 @@ h2{
     color: brown;
 
 }
-p{
-  
-}
+
 
 
     h3{
@@ -143,7 +144,7 @@ font-size: small;
 .modalVorodito{
     position: fixed;
     top: 0;
-   right: 5px;
+   right: 0px;
    display: flex;
    width: 100%;
     height: 100%;
@@ -179,17 +180,19 @@ justify-content: center;
 }
 .enteghad{
     color: white;
-    margin-top: 200px;
+    margin-top: 294px;
     padding: 10px;
+ 
 
 }
 ul {
     li {
         list-style-type: none;
+        margin-bottom: 5px;
     }
 }
 .en-all{
-    background-color: darkslategrey;
+    background-color: #c7dad5;
     border-radius: 5px;
     
 
@@ -200,4 +203,23 @@ ul {
 }
 .oimg{
 display: none;
+}
+@media (min-width: 760px){
+    .dimodal{
+        width: 40%;
+        height: 80vh;
+    }
+    .en-all{
+        background-color: #708b6c;
+    }
+   
+    .im{
+        display: grid ;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+    }
+    .enteghad{
+        margin-top: 281px;
+    }
 }
