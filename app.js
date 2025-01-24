@@ -6,39 +6,41 @@ const todoo = document.body.querySelector(".cl");
 const mod = document.body.querySelector(".allmodal")
 const vo = document.body.querySelector(".modalVorodito")
 const Img = document.body.querySelector(".imes")
+const dei = document.getElementById("dei")
 const data = JSON.parse(localStorage.getItem("arrTodos"))
 
 
 
 const arrTodos = data || [];
 let editNum = null
+const val = todo.value
 
 
 
-const toast = Toastify({
-    text: "انجام شد قربونت برم",
-    duration: 3000,
-    close: true,
-    gravity: "bottom",
-    position: "right", 
-    stopOnFocus: true, // Prevents dismissing of toast on hover
-    style: {
-      background: "red",
-    },
-    onClick: function(){} // Callback after click
-  })
-  const tick = Toastify({
-    text: "روچشم،حتما سه نقطه رو باز کن",
-    duration: 3000,
-    close: true,
-    gravity: "bottom",
-    position: "right", 
-    stopOnFocus: true, // Prevents dismissing of toast on hover
-    style: {
-      background: "",
-    },
-    onClick: function(){} // Callback after click
-  })
+// const toast = Toastify({
+//     text: "انجام شد قربونت برم",
+//     duration: 3000,
+//     close: true,
+//     gravity: "bottom",
+//     position: "right", 
+//     stopOnFocus: true, // Prevents dismissing of toast on hover
+//     style: {
+//       background: "red",
+//     },
+//     onClick: function(){} // Callback after click
+//   })
+//   const tick = Toastify({
+//     text: "روچشم،حتما سه نقطه رو باز کن",
+//     duration: 3000,
+//     close: true,
+//     gravity: "bottom",
+//     position: "right", 
+//     stopOnFocus: true, // Prevents dismissing of toast on hover
+//     style: {
+//       background: "",
+//     },
+//     onClick: function(){} // Callback after click
+//   })
 
 
 function boxtodo() {
@@ -57,12 +59,15 @@ function boxclos() {
 }
 
 function clice() {
-  
+
    todoo.classList.add("cl")
    const val = todo.value
+   if(val.length >= 40){
+de()
+   }
    if (val){
     Img.classList.add("oimg")
-    tick.showToast()
+    // tick.showToast()
     const Todonew = {
     id : arrTodos.length > 0 ? arrTodos.at(-1).id + 1 : 1,
     title: val ,
@@ -72,8 +77,9 @@ function clice() {
   arrTodos.push(Todonew)
   todo.value = ""
   cliceTodo()
+
 }
-    
+
 }
 function cliceTodo(){
 window.localStorage.setItem("arrTodos" , JSON.stringify(arrTodos))
@@ -84,7 +90,7 @@ window.localStorage.setItem("arrTodos" , JSON.stringify(arrTodos))
 const temp = arrTodos.map(itms => {
 
     return `
-              <div style="display: flex;    align-items: center; justify-content: space-between;">
+              <div id="dei" style="display: flex;    align-items: center; justify-content: space-between;">
          <div style="display: flex;     align-items: baseline; ">
            
          <input  onchange="checkox(this,${itms.id})" type="checkbox" ${itms.isdone ? "checked" : ""} />
@@ -145,7 +151,9 @@ function editItms(id){
 }
 function Save() {
 const editin = document.getElementById("edin").value;
-
+if(editin.length >= 40){
+  de()
+     }
 if(editin){
     const find = arrTodos.findIndex(itms => itms.id === editNum)
     arrTodos[find].title = editin
@@ -168,7 +176,7 @@ function showToast(){
     const Idfound = arrTodos.findIndex(item => item.id === Id)
 
     arrTodos.splice(Idfound , 1)
-    toast.showToast()
+    // toast.showToast()
    cliceTodo()
 
    
@@ -202,6 +210,7 @@ function Vorodi(){
         <p>  برای شروع و گذاشتن یادداشت بر روی گزینه  Add task کلیک کن</p>
         <p>در ادامه با گزینه Delete و Edit مواجه میشی</p>
         <p>یادت باشه با زدن بر روی گزینه delete یادداشتت حذف میشه و راهی برای بازگشتش نیست</p>
+       <p>یادت باشه بیشتر از 40 خط نمیتونی تایپ کنی خود به خود یادداشتت پاک میشه</p>
         <p>چیزی که روی سایت ثبت میکنی موندگاره و با خروجت چیزی پاک نمیشه </p>
         <p>اطلاعاتت جاش امنه رفیق با امنیت کامل فعالیت کن</p>
       <p class="bold">اگه همه رو نادیده گرفتی‌ میتونی با سه نقطه کنار یادداشتت باز راهنمایی رو ببینی</p>
@@ -217,3 +226,6 @@ function Vorodi(){
 
     }
     Vorodi()
+    function de (){
+dei.classList.add("hid")
+    }
