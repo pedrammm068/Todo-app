@@ -1,32 +1,40 @@
-body{
+body {
     margin: 0;
     padding: 0;
+    display: flex;
     width: 100%;
-    max-width: 1480px;
+    justify-content: center;
 }
-.adding{
-padding: 20px 40px;
+
+.adding {
+    padding: 20px 40px;
 }
-.para{
-color: darkgray;
-display: contents;
+
+.para {
+    color: darkgray;
+    display: contents;
 }
-.para:hover{
+
+.para:hover {
     color: tomato;
 }
-a{
- text-decoration: none;
+
+a {
+    text-decoration: none;
 
 }
-.pad{
+
+.pad {
     display: grid;
     justify-content: center;
     align-items: center;
 }
-.cl{
+
+.cl {
     display: none;
 }
-.todoo{
+
+.todoo {
 
     border: 3px solid darkgrey;
     padding: 50px;
@@ -36,194 +44,227 @@ a{
     max-width: 360px;
 
 }
-#todos{
+
+#todos {
     border: 0;
- padding: 10px ;
- border-radius: 10px;
- position: absolute;
- top: 4px;
- left: 5px;
+    padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+    top: 4px;
+    left: 5px;
 
 }
 
-#get-ht{
-background-color: darkgreen;
-   border-radius: 10px ;
-   padding: 6px;
-   width: 80%;
-   color: white;
- text-transform: capitalize;
-
-}
-.list{
-
-li{
-    list-style-type: none;
+#get-ht {
+    background-color: darkgreen;
+    border-radius: 10px;
+    padding: 6px;
+    width: 80%;
+    color: white;
+    text-transform: capitalize;
 
 }
 
+.list {
+
+    li {
+        list-style-type: none;
+
+    }
+
 }
-.allmodal{
-overflow: auto;
+
+.allmodal {
+    overflow: auto;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-  backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
 
 }
-.bl{
+
+.bl {
     display: none;
 }
-.moodal{
- position: relative;
-   
+
+.moodal {
+    position: relative;
+
     border-radius: 20px;
     width: 50%;
     height: 70px;
     max-width: 600px;
     padding: 24px;
 
-
 }
-.clos{
+
+.clos {
     position: absolute;
     background-color: darkgrey;
     top: 4px;
     right: 15px;
-    
+
 
 }
-.del{
-margin-right: 10px;
-   background-color: red;
-   color: white;
-   border-radius: 4px;
-   padding: 5px 20px;
-}
-.edit{
-   
+
+.del {
+    margin-right: 10px;
+    background-color: red;
+    color: white;
     border-radius: 4px;
     padding: 5px 20px;
 }
-.save{
+
+.edit {
+
     border-radius: 4px;
     padding: 5px 20px;
-    background-color: chartreuse ;
+}
+
+.save {
+    border-radius: 4px;
+    padding: 5px 20px;
+    background-color: chartreuse;
     color: white;
 }
-.edited{
+
+.edited {
     border: 1px solid burlywood;
-    padding: 5px ;
+    padding: 5px;
     background-color: lightslategrey;
     color: white;
     border-radius: 3px;
-  
+
 }
+
 .modalVorodi {
-h2{
-    color: brown;
+    h2 {
+        color: brown;
 
-}
+    }
 
 
 
-    h3{
+    h3 {
         text-align: center;
     }
 }
-.bold{
-color: crimson;
-font-size: small;
+
+.bold {
+    color: crimson;
+    font-size: small;
 }
-.modalVorodito{
+
+.modalVorodito {
     position: fixed;
     top: 0;
-   right: 0px;
-   display: flex;
-   width: 100%;
+    right: 0px;
+    display: flex;
+    width: 100%;
     height: 100%;
-justify-content: center;
+    justify-content: center;
     align-items: center;
-  backdrop-filter: blur(64px);
-  
+    backdrop-filter: blur(64px);
+
 }
-.bast{
+
+.bast {
     position: absolute;
     left: 10px;
 }
-.dimodal{
+
+.dimodal {
     overflow: auto;
-   
+
     background-color: burlywood;
     display: grid;
     width: 80%;
     height: 60%;
-    position:relative;
+    position: relative;
     border-radius: 10px;
     padding: 4px;
-    p{
+    max-width: 1280px;
+    max-height: 1280px;
+
+    p {
         font-size: 15px;
     }
-    h3{
+
+    h3 {
         text-align: center;
     }
 
 }
-.cl{
+
+.cl {
     display: none;
 }
-.enteghad{
+
+.enteghad {
     color: white;
     margin-top: 294px;
     padding: 10px;
- 
+
 
 }
+
 ul {
     li {
         list-style-type: none;
         margin-bottom: 5px;
     }
 }
-.en-all{
+
+.en-all {
     background-color: #c7dad5;
     border-radius: 5px;
-    
+
 
 }
-.imes{
+
+.imes {
     width: 100%;
-    
+
 }
-.oimg{
-display: none;
-}
-.hid{
+
+.oimg {
     display: none;
 }
 
-@media (min-width: 760px){
-    .dimodal{
+.hid {
+    display: none;
+}
+
+.all-c {
+    width: 100%;
+    max-width: 1350px;
+
+}
+
+@media (min-width: 760px) {
+    .dimodal {
         width: 40%;
         height: 80vh;
     }
-    .en-all{
+
+    .en-all {
         background-color: #708b6c;
     }
-   
-    .im{
-        display: grid ;
-                align-items: center;
-                justify-content: center;
-                width: 100%;
+
+    .im {
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
     }
-    .enteghad{
+
+    .enteghad {
         margin-top: 281px;
     }
 }
