@@ -8,8 +8,10 @@ const vo = document.body.querySelector(".modalVorodito")
 const Img = document.body.querySelector(".imes")
 const dei = document.getElementById("dei")
 const data = JSON.parse(localStorage.getItem("arrTodos"))
-
-
+const hidmod = document.getElementById("hide-modal")
+const categoryS = document.getElementById("category-s")
+const FilCn = document.getElementById("filter-container")
+const Serch = document.getElementById("Serch")
 
 const arrTodos = data || [];
 let editNum = null
@@ -17,37 +19,8 @@ const val = todo.value
 
 
 
-// const toast = Toastify({
-//     text: "انجام شد قربونت برم",
-//     duration: 3000,
-//     close: true,
-//     gravity: "bottom",
-//     position: "right", 
-//     stopOnFocus: true, // Prevents dismissing of toast on hover
-//     style: {
-//       background: "red",
-//     },
-//     onClick: function(){} // Callback after click
-//   })
-//   const tick = Toastify({
-//     text: "روچشم،حتما سه نقطه رو باز کن",
-//     duration: 3000,
-//     close: true,
-//     gravity: "bottom",
-//     position: "right", 
-//     stopOnFocus: true, // Prevents dismissing of toast on hover
-//     style: {
-//       background: "",
-//     },
-//     onClick: function(){} // Callback after click
-//   })
-
-
 function boxtodo() {
     todoo.classList.remove("cl")
-
-
-    
 };
 
 
@@ -62,49 +35,51 @@ function clice() {
 
    todoo.classList.add("cl")
    const val = todo.value
+   const category = categoryS.value
    if(val.length >= 40){
 de()
    }
    if (val){
     Img.classList.add("oimg")
-    // tick.showToast()
     const Todonew = {
     id : arrTodos.length > 0 ? arrTodos.at(-1).id + 1 : 1,
     title: val ,
-    isdone : false 
+    isdone : false ,
+    category: category,
   }
   
   arrTodos.push(Todonew)
   todo.value = ""
-  cliceTodo()
+  cliceTodo(arrTodos , Todonew.id)
 
 }
 
 }
-function cliceTodo(){
+function Filtercat (category) {
+const Filt = category === "همه" ? arrTodos : arrTodos.filter(itme => itme.category === category)
+cliceTodo(Filt)
+}
+function cliceTodo(todos = arrTodos , newId = null){
 window.localStorage.setItem("arrTodos" , JSON.stringify(arrTodos))
 
 
 
 
-const temp = arrTodos.map(itms => {
-
+const temp = todos.map(itms => {
+const isNew = itms.id === newId
     return `
-              <div id="dei" style="display: flex;    align-items: center; justify-content: space-between;">
+            <div class="todo-item ${isNew ? 'todo-item-new' : ''}" id="dei" style="display: flex; align-items: center; justify-content: space-between;">
          <div style="display: flex;     align-items: baseline; ">
            
          <input  onchange="checkox(this,${itms.id})" type="checkbox" ${itms.isdone ? "checked" : ""} />
              <li style=" padding: 4px ;   list-style-type: none;" id="${itms.id}">
            
-             ${itms.id === editNum ? `<input class="edited" id="edin"  value="${itms.title}">` : ` <span style="border: 2px solid gray;
-    padding: 2px 17px 2px 3px;
-    border-radius: 3px;
-    background-color: burlywood;
-    color: white;">${itms.title}</span>` }
-           
+            
+            ${itms.id === editNum ? `<input class="edited" id="edin" value="${itms.title}">` : `<span class="todo-title${itms.isdone ? ' done' : ''}">${itms.title}</span>`}
+            
              <button onclick="del(${itms.id})" class="del">Delete</button>
 
-             ${itms.id === editNum ? `<button class="save" onclick="Save()">Save </button>` : `             <button onclick="editItms(${itms.id})" class="edit">Edit</button> ` }
+             ${itms.id === editNum ? `<button class="save" onclick="Save()">Save </button>` : ` <button onclick="editItms(${itms.id})" class="edit" ${itms.isdone ? 'disabled' : ''}>Edit</button> ` }
 
              </li>
 </div>
@@ -120,7 +95,12 @@ const temp = arrTodos.map(itms => {
 </div>
     `
 }).join("")
-list.innerHTML = temp
+list.innerHTML = temp 
+if(todos.length === 0){
+    Img.classList.remove("oimg")
+} else {
+    Img.classList.add("oimg")
+}
 
 }
 
@@ -134,14 +114,6 @@ cliceTodo()
    
     cliceTodo()
     }
-    
-// function check(){
-//     if( isdone = true){
-//          tick.showToast()
-//    console.log(isdone)
-//     }
-//     cliceTodo()
-//  }
 
   
 function editItms(id){
@@ -167,17 +139,16 @@ cliceTodo()
 function addtoogel(){
 mod.classList.remove("bl")
 }
-function showToast(){
-
-}
 
 
  function del(Id) {
     const Idfound = arrTodos.findIndex(item => item.id === Id)
-
+    const anm = document.getElementById(Id).parentElement.parentElement
+    anm.classList.add("deleted")
+setTimeout(() => {
     arrTodos.splice(Idfound , 1)
-    // toast.showToast()
    cliceTodo()
+},600)
 
    
 }
@@ -191,8 +162,11 @@ if(evt.key === "Enter"){
 
 todo.addEventListener("keypress" , handle)
 
-
 function Vorodi(){
+if(localStorage.getItem("hidMod") === "true"){
+    vo.classList.add("cl")
+    return
+}
 
 
     const temp = `
@@ -214,18 +188,34 @@ function Vorodi(){
         <p>چیزی که روی سایت ثبت میکنی موندگاره و با خروجت چیزی پاک نمیشه </p>
         <p>اطلاعاتت جاش امنه رفیق با امنیت کامل فعالیت کن</p>
       <p class="bold">اگه همه رو نادیده گرفتی‌ میتونی با سه نقطه کنار یادداشتت باز راهنمایی رو ببینی</p>
-        <h3>[: Pedram </h3>
+      <label style="display: flex; align-items: center; gap: 5px;">
+                <input type="checkbox" id="hide-modal"> دیگه نشون نده
+            </label>
+      <h3>[: Pedram </h3>
     </div>
     
     `
-    vo.innerHTML += temp
+    vo.innerHTML = temp
+    const hidmod = document.getElementById("hide-modal")
+    hidmod.addEventListener("change" , MadBast)
+    }
+    function MadBast() {
+        if(this.checked) {
+            localStorage.setItem("hidMod" , "true")
+            boxclo()
+        }
     }
   
     function boxclo() {
-        vo.classList.add("cl")
+        vo.classList.add("hiddd")
 
     }
     Vorodi()
     function de (){
 dei.classList.add("hid")
     }
+    function serchInput(evt){
+const filterd = arrTodos.filter(itme => itme.title.toLowerCase().includes(evt.target.value.toLowerCase()))
+cliceTodo(filterd)
+    }
+    Serch.addEventListener("input" , serchInput )

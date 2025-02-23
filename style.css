@@ -44,9 +44,20 @@ a {
     max-width: 360px;
 
 }
+.todo-title {
+    border: 1px solid rgb(0, 0, 0);
+    padding: 2px 17px 2px 3px;
+    border-radius: 3px;
+    background-color: burlywood;
+    color: white;
+}
+
+.todo-title.done {
+    text-decoration: line-through;
+}
 
 #todos {
-    border: 0;
+    border: ۱;
     padding: 10px;
     border-radius: 10px;
     position: absolute;
@@ -54,6 +65,7 @@ a {
     left: 5px;
 
 }
+
 
 #get-ht {
     background-color: darkgreen;
@@ -227,6 +239,10 @@ ul {
 
 
 }
+.completed {
+    text-decoration: line-through;
+    opacity: 0.9;
+}
 
 .imes {
     width: 100%;
@@ -246,6 +262,61 @@ ul {
     max-width: 1350px;
 
 }
+.done {
+    text-decoration: line-through;
+}
+.hiddd{
+    display: none;
+}
+#filter-container{
+    display: flex;
+    justify-content: end;
+
+}
+#filter-select {
+    background-color: #c7dad5;
+    color: white;
+   text-align: center;
+   border-radius: 6px;
+   padding: 4px;
+}
+#category-s {
+    padding: 4px;
+    background-color: cornsilk;
+    border-radius: 6px;
+    margin-bottom: 4px;
+}
+.srr{
+    display: flex;
+    justify-content: center;
+padding-top: 4px;
+}
+#Serch {
+    border-radius: 6px;
+    text-align: center;
+    background-color: cornsilk;
+    }
+    .todo-item {
+    }
+    
+    .todo-item-new {
+        animation: fadeIn 0.6s ease forwards;
+    }
+    
+    .todo-item.deleted {
+        animation: fadeOut 0.6s ease forwards;
+    }
+    
+    @keyframes fadeIn {
+        0% { opacity: 0; transform: translateY(10px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes fadeOut {
+        0% { opacity: 1; transform: translateY(0); }
+        100% { opacity: 0; transform: translateY(-15px); }
+    }
+
 
 @media (min-width: 760px) {
     .dimodal {

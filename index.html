@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List</title>
-    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script> -->
     <link rel="stylesheet" href="style.css">
     <script src="app.js" defer></script>
 </head>
 
 <body>
     <div class="all-c">
-
+<div class="srr"> 
+        <input id="Serch" placeholder="جستوجو در تسک ها" type="text">
+    </div>
         <div class="adding">
             <h1>Todo list</h1>
             <a href="#">
@@ -24,6 +24,12 @@
         <div class="pad">
             <div class="todoo cl">
                 <input type="text" id="todos" value="" placeholder="Take notes">
+                <select id="category-s">
+
+                    <option value="پرداخت قبض">پرداخت قبض</option>
+                    <option value="مطالعه">مطالعه</option>
+                    <option value="خرید">خرید</option>
+                </select>
                 <button onclick="clice()" id="get-ht">add list</button>
                 <a href="#"> <svg onclick="boxover()" style="position: absolute; " xmlns="http://www.w3.org/2000/svg"
                         width="30px" height="30px" viewBox="0 0 24 24" fill="none">
@@ -35,9 +41,17 @@
                     </svg></a>
             </div>
         </div>
+        <div id="filter-container">
 
+            <select id="filter-select" onchange="Filtercat(this.value)">
+<option value="همه">همه</option>
+<option value="پرداخت قبض">پرداخت قبض</option>
+<option value="مطالعه">مطالعه</option>
+<option value="خرید">خرید</option>
 
-
+            </select>
+        </div>
+    
         <ul id="list">
 
 
